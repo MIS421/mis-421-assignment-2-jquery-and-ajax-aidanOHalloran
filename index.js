@@ -2,14 +2,23 @@ $(document).ready(function () {
     // Create a dialog element
     $('#searchResults').dialog({
         autoOpen: false, // Don't open the dialog immediately
+        position: { my: "top", at: "bottom", of: "#currTime" },
+        open: function (event, ui) {
+          // Calculate the position dynamically based on the search button's position
+          var buttonPos = $('#searchBtn').offset();
+          var dialogPos = $('#searchResults').parent().offset();
+          var topOffset = buttonPos.top - dialogPos.top + $('#searchBtn').outerHeight();
+          $(this).dialog('option', 'position', { my: "top", at: "bottom", of: "#currTime", offset: "0 " + topOffset });
+      }
     });
 
-    let results = '';
 
     const searchBtn = document.getElementById('searchBtn');
     searchBtn.addEventListener('click', apiSearch);
 
     function apiSearch() {
+      let results = '';
+
         var params = {
             "q": $("#query").val(),
             "count": "50",
@@ -26,10 +35,11 @@ $(document).ready(function () {
             type: "GET",
         })
             .done(function (data) {
+              console.log(params.q)
                 const len = data.webPages.value.length;
 
                 for (let i = 0; i < len; i++) {
-                    results += "<p><a href='" + data.webPages.value[i].url + "'>" + data.webPages.value[i].name + "</a>: " + data.webPages.value[i].snippet + "</p>";
+                    results += "<div class='search-result'><p id='resultsP'><a href='" + data.webPages.value[i].url + "'>" + data.webPages.value[i].name + "</a>: " + data.webPages.value[i].snippet + "</p></div>";
                 }
 
                 // Clear any previous content

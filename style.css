@@ -30,9 +30,20 @@
     color: white;
   }
 
+  #resultsP{
+    color: black;
+  }
+
   #searchResults{
     visibility: hidden;
   }
+
+  /* CSS to style the search result items */
+.search-result {
+  border: 2px solid #ccc; /* Add a border to separate items */
+  padding: 10px; /* Add padding for spacing */
+  margin-bottom: 10px; /* Add margin to separate items vertically */
+}
 
   #time{
     visibility: hidden;
