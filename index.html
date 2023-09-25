@@ -18,7 +18,7 @@
 <body>
   <!-- header with h1 and p tag -->
   <header>
-    <h1>Crimson Connection</h1>
+    <h1 id="searchEngineName">Crimson Connection</h1>
     <p>Search For Your Needs</p>
   </header>
 
@@ -30,12 +30,19 @@
   <br>
   <br>
 <!-- time btn -->
-  <button id="currTime">Current Time</button>
+  <button id="timeButton">Current Time</button>
 
   <br>
 <!-- search results div -->
-<div id="searchResults" class="results-container"></div>
+<div id="searchResults" class="results-container">
+  <!-- Container for search results -->
+  <div id="searchResultContent"></div>
   
+  <!-- Navigation buttons -->
+  <button id="previousResultBtn">Previous</button>
+  <button id="nextResultBtn">Next</button>
+</div>
+
   <br>
 <!-- time div -->
   <div id="time"></div>
