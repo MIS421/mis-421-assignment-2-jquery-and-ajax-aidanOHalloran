@@ -45,7 +45,9 @@ $(document).ready(function () {
   const dialogElement = $("#searchResults");
     dialogElement.dialog({
         autoOpen: false,
-        position: { my: "top", at: "bottom", of: '#timeButton' },
+        position: { my: "left top", at: "left bottom+0", of: '#timeButton' },
+        innerWidth: "150%",
+        outerWidth: "150%"
     });
 
 
