@@ -16,13 +16,15 @@
     box-shadow: 4px 3px 2px black;
   }
 
-  h1 {
+h1 {
     font-size: 60px;
     margin: 0;
     font-weight: bold;
     color: crimson;
     cursor: pointer;
-  }
+    text-decoration: underline;
+    text-indent: 8vw;
+}
 
   p {
     font-size: 35px;
@@ -40,11 +42,7 @@
   }
 
   /* CSS to style the search result items */
-.search-result {
-  border: 2px solid #ccc; /* Add a border to separate items */
-  padding: 10px; /* Add padding for spacing */
-  margin-bottom: 10px; /* Add margin to separate items vertically */
-}
+
 
   #time{
     visibility: hidden;
@@ -59,6 +57,11 @@
     width: 100px;
     height: 50px;
     border-radius: 8px;
+    }
+
+  #searchBtn:hover{
+      background-color: gray;
+      color: black;
   }
 
   #timeButton{
@@ -66,3 +69,8 @@
     height: 50px;
     border-radius: 8px;
   }
+
+#timeButton:hover {
+    background-color: gray;
+    color: black;
+}

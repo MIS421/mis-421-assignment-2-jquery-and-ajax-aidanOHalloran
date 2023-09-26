@@ -43,23 +43,11 @@ $(document).ready(function () {
 
   // Create a dialog element
   const dialogElement = $("#searchResults");
-  dialogElement.dialog({
-    autoOpen: false, // Don't open the dialog immediately
-    position: { my: "top", at: "bottom", of: "#timeButton" }, // Initial position, can be adjusted
-    open: function (event, ui) {
-      // Calculate the position dynamically based on the search button's position
-      var buttonPos = $("#searchBtn").offset();
-      var dialogPos = $("#searchResults").parent().offset();
-      var topOffset =
-        buttonPos.top - dialogPos.top + $("#timeButton").outerHeight();
-      $(this).dialog("option", "position", {
-        my: "top",
-        at: "bottom",
-        of: "#timeButton",
-        offset: "0 " + topOffset,
-      });
-    },
-  });
+    dialogElement.dialog({
+        autoOpen: false,
+        position: { my: "top", at: "bottom", of: '#timeButton' },
+    });
+
 
   const searchBtn = document.getElementById("searchBtn");
   searchBtn.addEventListener("click", apiSearch);
