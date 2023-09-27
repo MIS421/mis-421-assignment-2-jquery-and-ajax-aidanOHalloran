@@ -7,13 +7,15 @@ body{
 
 header {
   display: flex;
+  justify-content: space-between;
   flex-direction: column;
   align-items: center;
-  text-align: center;
+  /* text-align: center; */
   padding: 20px;
   background-color: darkgrey;
   border-radius: 8px;
   box-shadow: 4px 3px 2px black;
+  height: 17vh;
 }
 
 #searchEngineName{
@@ -31,7 +33,7 @@ h1 {
     color: crimson;
     cursor: pointer;
     text-decoration: underline;
-    text-indent: 8vw;
+    text-indent: 4vw;
 }
 
 p {
@@ -39,6 +41,14 @@ p {
   margin: 0;
   font-style: italic;
   color: white;
+}
+
+#crimson-A{
+  width: 150px; /* Set the desired width */
+  height: auto; /* Maintain aspect ratio */
+  margin-right: -80vw; /* Adjust margin as needed */
+  border-radius: 6px;
+  transform: translateY(-15vh);
 }
 
 #resultsP{
@@ -62,10 +72,21 @@ p {
   width: 100px;
   height: 50px;
   border-radius: 8px;
-  }
+}
 
 #searchBtn:hover{
     background-color: gray;
+    color: black;
+}
+
+#luckyBtn{
+  width: 120px;
+  height: 50px;
+  border-radius: 8px;
+}
+
+#luckyBtn:hover{
+  background-color: gray;
     color: black;
 }
 

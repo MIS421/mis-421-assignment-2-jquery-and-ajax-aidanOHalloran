@@ -2,6 +2,52 @@ $(document).ready(function () {
   const timeButton = $("#timeButton");
   const timeDialog = $("#time");
 
+  // Function to get the url of the first item returned from a bing search
+  function getFirstResult(){
+    let results = ""; // Clear the results variable for each new search
+
+    var params = {
+      q: $("#query").val(),
+      count: "50",
+      offset: "0",
+      mkt: "en-us",
+    };
+
+    $.ajax({
+      url: "https://api.bing.microsoft.com/v7.0/search?" + $.param(params),
+      beforeSend: function (xhrObj) {
+        xhrObj.setRequestHeader(
+          "Ocp-Apim-Subscription-Key",
+          "75f75ee9f84448b1814b1fd9621aeb85"
+        );
+        xhrObj.setRequestHeader("Ocp-Apim-Subscription-Region", "global");
+      },
+      type: "GET",
+    }).done(function (data) {
+      console.log(params.q);
+      searchResults = data.webPages.value; // Store the search results
+      currentResultIndex = 0; // Reset the current result index
+
+      // go to url of first result
+      goToFirstResult(currentResultIndex);
+    })
+    .fail(function () {
+      alert("error");
+    });
+  }
+
+    //Function to go to first result
+    function goToFirstResult(){
+      var url = searchResults[0].url;
+      console.log(url);
+      window.open(url, '_blank');
+    }
+
+    //event listener for clicking the I'm Feeling Lucky button
+    $("#luckyBtn").on("click", function(){
+      getFirstResult();
+    });
+
   // Function to get and format the current time
   function getCurrentTime() {
     const now = new Date();
@@ -45,9 +91,8 @@ $(document).ready(function () {
   const dialogElement = $("#searchResults");
     dialogElement.dialog({
         autoOpen: false,
-        position: { my: "left top", at: "left bottom+0", of: '#timeButton' },
-        innerWidth: "150%",
-        outerWidth: "150%"
+        position: { my: "top", at: "bottom+20", of: '#luckyBtn' },
+        width: 600,
     });
 
 
